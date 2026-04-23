@@ -52,3 +52,41 @@ if page == "🏠 Home":
     with c3:
         st.markdown("### 3️⃣ Get Insights")
         st.write("Receive your dating compatibility report.")
+        elif page == "🔍 Compare":
+
+    st.title("🔍 Comparison Lab")
+
+    st.write("Upload two profiles to analyze compatibility.")
+
+    col_left, col_right = st.columns(2)
+
+    # PROFILE A
+    with col_left:
+        st.subheader("Profile A")
+
+        profile_a = st.text_area(
+            "Paste Profile A bio",
+            height=250,
+            placeholder="Bio, interests, hobbies, lifestyle..."
+        )
+
+    # PROFILE B
+    with col_right:
+        st.subheader("Profile B")
+
+        profile_b = st.text_area(
+            "Paste Profile B bio",
+            height=250,
+            placeholder="Bio, interests, hobbies, lifestyle..."
+        )
+
+    st.divider()
+
+    if st.button("💘 Analyze Compatibility", use_container_width=True):
+
+        if profile_a == "" or profile_b == "":
+            st.warning("Please enter both profiles.")
+        else:
+            st.session_state.profile_a = profile_a
+            st.session_state.profile_b = profile_b
+            st.success("Profiles submitted! Go to Results page 👉")
