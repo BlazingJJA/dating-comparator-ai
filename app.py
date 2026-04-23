@@ -90,3 +90,18 @@ if page == "🏠 Home":
             st.session_state.profile_a = profile_a
             st.session_state.profile_b = profile_b
             st.success("Profiles submitted! Go to Results page 👉")
+            elif page == "📊 Results":
+    st.title("📊 Results Report")
+    st.info("Results engine coming next step 🔥")
+
+elif page == "✨ Improve":
+    st.title("✨ Profile Improver")
+    st.info("Profile optimization coming next step 🔥")
+
+elif page == "👤 Dashboard":
+    st.title("👤 Dashboard")
+    st.info("User analytics coming soon 🔥")
+
+elif page == "💎 Upgrade":
+    st.title("💎 Upgrade to Pro")
+    st.info("Pricing page coming soon 🔥")
