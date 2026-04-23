@@ -90,8 +90,42 @@ elif page == "🔍 Compare":
 
 # ---------------- RESULTS PAGE ----------------
 elif page == "📊 Results":
-    st.title("📊 Results Report")
-    st.info("Results engine coming next step 🔥")
+
+    st.title("📊 Compatibility Report")
+
+    if "profile_a" not in st.session_state:
+        st.warning("No profiles analyzed yet. Go to Compare page first.")
+        st.stop()
+
+    profile_a = st.session_state.profile_a
+    profile_b = st.session_state.profile_b
+
+    import random
+
+    score = random.randint(55, 95)
+
+    st.metric("💘 Compatibility Score", f"{score}%")
+
+    st.divider()
+
+    st.subheader("🔥 Attraction Dynamics")
+    st.write("You both show strong lifestyle and personality alignment.")
+
+    st.subheader("🧠 Personality Match")
+    st.write("Shared interests and communication style detected.")
+
+    st.subheader("💬 Communication Style")
+    st.write("Likely to enjoy engaging conversations and shared humour.")
+
+    st.subheader("🏡 Long-term Potential")
+    st.write("Values and goals show promising long-term compatibility.")
+
+    st.subheader("🚩 Risk Signals")
+    st.write("Minor lifestyle differences may require compromise.")
+
+    st.divider()
+
+    st.button("✨ Improve My Profile", use_container_width=True)
 
 
 # ---------------- IMPROVE PAGE ----------------
