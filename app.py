@@ -78,6 +78,14 @@ elif page == "🔍 Compare":
 
     st.divider()
 
+    # 👇 IMPORTANT: define report_mode BEFORE the button
+    report_mode = st.selectbox(
+        "Select Report Style",
+        ["💼 Serious", "😂 Funny", "😈 Brutally Honest"]
+    )
+
+    st.divider()
+
     if st.button("💘 Analyze Compatibility", use_container_width=True):
 
         if profile_a == "" or profile_b == "":
@@ -85,9 +93,8 @@ elif page == "🔍 Compare":
         else:
             st.session_state.profile_a = profile_a
             st.session_state.profile_b = profile_b
-            st.session_state.report_mode = report_mode
+            st.session_state.report_mode = report_mode  # now safe
             st.success("Profiles submitted! Go to Results page 👉")
-
 
 # ---------------- RESULTS PAGE ----------------
 elif page == "📊 Results":
