@@ -85,6 +85,7 @@ elif page == "🔍 Compare":
         else:
             st.session_state.profile_a = profile_a
             st.session_state.profile_b = profile_b
+            st.session_state.report_mode = report_mode
             st.success("Profiles submitted! Go to Results page 👉")
 
 
@@ -97,35 +98,68 @@ elif page == "📊 Results":
         st.warning("No profiles analyzed yet. Go to Compare page first.")
         st.stop()
 
-    profile_a = st.session_state.profile_a
-    profile_b = st.session_state.profile_b
-
     import random
 
-    score = random.randint(55, 95)
+    score = random.randint(35, 97)
+
+    mode = st.session_state.get("report_mode", "💼 Serious")
 
     st.metric("💘 Compatibility Score", f"{score}%")
-
     st.divider()
 
-    st.subheader("🔥 Attraction Dynamics")
-    st.write("You both show strong lifestyle and personality alignment.")
+    # ---------------- SERIOUS MODE ----------------
+    if "Serious" in mode:
 
-    st.subheader("🧠 Personality Match")
-    st.write("Shared interests and communication style detected.")
+        st.subheader("🔥 Attraction Dynamics")
+        st.write("Strong alignment in lifestyle and personality traits.")
 
-    st.subheader("💬 Communication Style")
-    st.write("Likely to enjoy engaging conversations and shared humour.")
+        st.subheader("🧠 Personality Match")
+        st.write("Complementary communication and shared interests detected.")
 
-    st.subheader("🏡 Long-term Potential")
-    st.write("Values and goals show promising long-term compatibility.")
+        st.subheader("💬 Communication Style")
+        st.write("Likely to maintain engaging and emotionally balanced conversations.")
 
-    st.subheader("🚩 Risk Signals")
-    st.write("Minor lifestyle differences may require compromise.")
+        st.subheader("🏡 Long-term Potential")
+        st.write("Values and future goals appear largely compatible.")
 
-    st.divider()
+        st.subheader("🚩 Risk Signals")
+        st.write("Minor lifestyle differences may require compromise.")
 
-    st.button("✨ Improve My Profile", use_container_width=True)
+    # ---------------- FUNNY MODE ----------------
+    elif "Funny" in mode:
+
+        st.subheader("🔥 Attraction Dynamics")
+        st.write("You both looked at each other and said: 'Yes. This human will do.'")
+
+        st.subheader("🧠 Personality Match")
+        st.write("One of you plans life. The other plans snacks. Together? Balance.")
+
+        st.subheader("💬 Communication Style")
+        st.write("From deep talks to terrible memes in 3.5 seconds. Elite range.")
+
+        st.subheader("🏡 Long-term Potential")
+        st.write("High probability of hoodie theft and arguing over Netflix.")
+
+        st.subheader("🚩 Risk Signals")
+        st.write("Potential conflict over blanket sharing and thermostat control.")
+
+    # ---------------- BRUTALLY HONEST MODE ----------------
+    elif "Brutally" in mode:
+
+        st.subheader("🔥 Attraction Dynamics")
+        st.write("Strong initial chemistry. Sustainability unclear.")
+
+        st.subheader("🧠 Personality Match")
+        st.write("Differences could either create growth or weekly arguments.")
+
+        st.subheader("💬 Communication Style")
+        st.write("One overthinks. The other avoids conflict. Proceed carefully.")
+
+        st.subheader("🏡 Long-term Potential")
+        st.write("Requires maturity, effort, and realistic expectations.")
+
+        st.subheader("🚩 Risk Signals")
+        st.write("Energy mismatch and lifestyle differences detected.")
 
 
 # ---------------- IMPROVE PAGE ----------------
